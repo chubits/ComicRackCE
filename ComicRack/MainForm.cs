@@ -1883,7 +1883,7 @@ namespace cYo.Projects.ComicRack.Viewer
 
 		public void AddFolderToLibrary()
 		{
-			using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
+			using (FolderBrowserDialogEx folderBrowserDialog = new FolderBrowserDialogEx())
 			{
 				folderBrowserDialog.Description = TR.Messages["AddFolderLibrary", "Books in this Folder and all sub Folders will be added to the library."];
 				folderBrowserDialog.ShowNewFolderButton = true;
@@ -2361,7 +2361,7 @@ namespace cYo.Projects.ComicRack.Viewer
 						exportSetting.AddToLibrary = true;
 					}
 					exportSetting.Target = ExportTarget.NewFolder;
-					using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
+					using (FolderBrowserDialogEx folderBrowserDialog = new FolderBrowserDialogEx())
 					{
 						folderBrowserDialog.Description = TR.Messages["SelectLocalFolder", "Select a local folder to store the remote Books"];
 						folderBrowserDialog.ShowNewFolderButton = true;
