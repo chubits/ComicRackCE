@@ -1,3 +1,15 @@
+Community Edition Build 0.9.184:
+
+* NEW: Support for JpegXL image format. Supports Lossy & Lossless compression. Note: Lossless aren't reconstructable to Jpeg.
+* NEW: Using Export Reading List on a Folder will now let you choose to export the CBL as smart lists (default) or single entries (converts smart lists to regular reading lists).
+
+* UPDATE: Updated French Translation. It is now the default localization used as a base when updating translations (See Wiki for instructions on updating other languages).
+* UPDATE: Updated Publisher icons. Thanks to all for their contributions.
+
+* BUGFIX: Fixed the Paste Data dialog failling to open when the book metadata contained unparsed elements.
+* BUGFIX: Potentially fixed crash to desktop that would occur when resizing images with some "fast" algorithms.
+
+
 Community Edition Build 0.9.182:
 
 * NEW: Dark Mode !!! Enable via "UseDarkMode" setting in ComicRack.ini (or "-dark"). (Huge thanks to @gman-comicdb for doing the very hard work)
