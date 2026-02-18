@@ -263,10 +263,10 @@ namespace cYo.Projects.ComicRack.Viewer.Dialogs
 
 		private void btChooseFolder_Click(object sender, EventArgs e)
 		{
-			using (FolderBrowserDialogEx folderBrowserDialog = new FolderBrowserDialogEx())
+			using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
 			{
 				folderBrowserDialog.Description = TR.Load(base.Name)["SelectExportFolder", "Please select the Export Folder"];
-				folderBrowserDialog.InitialDirectory = txFolder.Text;
+				folderBrowserDialog.SelectedPath = txFolder.Text;
 				folderBrowserDialog.ShowNewFolderButton = true;
 				if (folderBrowserDialog.ShowDialog(this) != DialogResult.Cancel)
 				{

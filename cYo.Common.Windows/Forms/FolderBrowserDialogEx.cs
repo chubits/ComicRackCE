@@ -12,6 +12,7 @@ namespace cYo.Common.Windows.Forms
 {
     public partial class FolderBrowserDialogEx : FormEx
     {
+        //TODO: Support renaming folders like the original does. Requires to replace the other FolderBrowserDialog call to this one. Only advantage this has is Dark Mode support.
         private string checkboxText = string.Empty;
 
         public string SelectedPath { get; private set; }

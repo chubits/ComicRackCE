@@ -354,7 +354,7 @@ namespace cYo.Projects.ComicRack.Viewer.Dialogs
 
         private void btAddFolder_Click(object sender, EventArgs e)
         {
-            using (FolderBrowserDialogEx folderBrowserDialog = new FolderBrowserDialogEx())
+            using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
             {
                 folderBrowserDialog.Description = LocalizeUtility.GetText(this, "SelectComicFolder", "Please select a folder containing Books");
                 folderBrowserDialog.ShowNewFolderButton = true;
@@ -376,11 +376,11 @@ namespace cYo.Projects.ComicRack.Viewer.Dialogs
             {
                 return;
             }
-            using (FolderBrowserDialogEx folderBrowserDialog = new FolderBrowserDialogEx())
+            using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
             {
                 folderBrowserDialog.Description = LocalizeUtility.GetText(this, "SelectComicFolder", "Please select a folder containing Books");
                 folderBrowserDialog.ShowNewFolderButton = true;
-                folderBrowserDialog.InitialDirectory = text;
+                folderBrowserDialog.SelectedPath = text;
                 if (folderBrowserDialog.ShowDialog(this) == DialogResult.OK && !string.IsNullOrEmpty(folderBrowserDialog.SelectedPath))
                 {
                     lbPaths.Items[lbPaths.SelectedIndex] = folderBrowserDialog.SelectedPath;
@@ -390,7 +390,7 @@ namespace cYo.Projects.ComicRack.Viewer.Dialogs
 
         private void btAddLibraryFolder_Click(object sender, EventArgs e)
         {
-            using (FolderBrowserDialogEx folderBrowserDialog = new FolderBrowserDialogEx())
+            using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
             {
                 folderBrowserDialog.Description = LocalizeUtility.GetText(this, "SelectScriptFolder", "Please select a script library folder");
                 folderBrowserDialog.ShowNewFolderButton = false;
@@ -1475,7 +1475,7 @@ namespace cYo.Projects.ComicRack.Viewer.Dialogs
 
 		private void btBackupLocation_Click(object sender, EventArgs e)
 		{
-			using (FolderBrowserDialogEx folderBrowserDialog = new FolderBrowserDialogEx())
+			using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
 			{
 				folderBrowserDialog.Description = LocalizeUtility.GetText(this, "SelectBackupFolder", "Please select a folder to save your backups in");
 				folderBrowserDialog.ShowNewFolderButton = true;
