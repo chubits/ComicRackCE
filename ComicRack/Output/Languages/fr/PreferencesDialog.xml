@@ -129,6 +129,7 @@
     <Text Key="groupComicFolders" Text="Dossiers contenant des Livres" Comment="Book Folders" />
     <Text Key="groupOtherComics" Text="Livres" Comment="Books" />
     <Text Key="SelectComicFolder" Text="Veuillez sélectionner un dossier contenant des Livres" Comment="Please select a folder containing Books" />
+    <Text Key="SelectBackupFolder" Text="Veuillez Sélectionnez un dossier pour stocker vos sauvegardes." Comment="Please select a folder to save your backups in" />
     <Text Key="labelGamma" Text="Ajustement Gamma :" Comment="Gamma Adjustment:" />
     <Text Key="grpDisplay" Text="Affichage" Comment="Display" />
     <Text Key="chkEnableInertialMouseScrolling" Text="Inertie avec le défilement" Comment="Enable Inertial Mouse scrolling" />

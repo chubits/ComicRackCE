@@ -1477,7 +1477,7 @@ namespace cYo.Projects.ComicRack.Viewer.Dialogs
 		{
 			using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
 			{
-				folderBrowserDialog.Description = LocalizeUtility.GetText(this, "SelectComicFolder", "Please select a folder to save your backups in");
+				folderBrowserDialog.Description = LocalizeUtility.GetText(this, "SelectBackupFolder", "Please select a folder to save your backups in");
 				folderBrowserDialog.ShowNewFolderButton = true;
 				if (folderBrowserDialog.ShowDialog(this) == DialogResult.OK && !string.IsNullOrEmpty(folderBrowserDialog.SelectedPath))
 				{
