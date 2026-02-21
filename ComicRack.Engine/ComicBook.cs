@@ -2758,7 +2758,9 @@ namespace cYo.Projects.ComicRack.Engine
 					return date.ToShortDateString();
 				case ComicDateFormat.Short:
 					return date.ToShortDateString();
-				case ComicDateFormat.Relative:
+				case ComicDateFormat.Long:
+					return date.ToLongDateString();
+                case ComicDateFormat.Relative:
 					return date.ToRelativeDateString(DateTime.Now);
 			}
 		}
