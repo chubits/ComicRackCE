@@ -98,6 +98,7 @@ namespace cYo.Common.Windows.Forms
             this.folderTreeView.ImageIndex = 0;
             this.folderTreeView.Indent = 15;
             this.folderTreeView.ItemHeight = 18;
+            this.folderTreeView.LabelEdit = true;
             this.folderTreeView.Location = new System.Drawing.Point(0, 0);
             this.folderTreeView.Name = "folderTreeView";
             this.folderTreeView.SelectedImageIndex = 0;
@@ -118,6 +119,7 @@ namespace cYo.Common.Windows.Forms
             this.Controls.Add(this.btCancel);
             this.Controls.Add(this.lblDescription);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FolderBrowserDialogEx";
@@ -125,6 +127,7 @@ namespace cYo.Common.Windows.Forms
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Title";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FolderBrowserDialogEx_KeyDown);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

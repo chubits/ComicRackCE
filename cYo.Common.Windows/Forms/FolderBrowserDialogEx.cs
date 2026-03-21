@@ -113,6 +113,7 @@ namespace cYo.Common.Windows.Forms
                     string newFolderPath = CreateNewFolder(path);
                     folderTreeView.Init();
                     folderTreeView.DrillToFolder(newFolderPath);
+                    Rename();
                 }
             }
         }
@@ -138,6 +139,44 @@ namespace cYo.Common.Windows.Forms
             catch (Exception)
             {
                 return path;
+            }
+        }
+
+        /// <summary>
+        /// Triggers the BeginEdit for the currently selected folder in the <see cref="FolderTreeView"/>.
+        /// </summary>
+        private void Rename()
+        {
+            if (folderTreeView.SelectedNode != null)
+            {
+                string path = folderTreeView.GetSelectedNodePath();
+                if (!string.IsNullOrEmpty(path))
+                {
+                    Rename(folderTreeView.SelectedNode);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Triggers the <c>BeginEdit</c> for a specified <see cref="TreeNode"/> in the <see cref="FolderTreeView"/>.
+        /// </summary>
+        private void Rename(TreeNode tn)
+        {
+            if (tn == null)
+                return;
+
+            tn.BeginEdit();
+        }
+
+        /// <summary>
+        /// Handles the KeyDown event for the <see cref="FolderBrowserDialogEx"/>. If F2 is pressed, it triggers the <c>Rename</c> method to allow renaming the currently selected folder in the <see cref="FolderTreeView"/>.
+        /// </summary>
+        private void FolderBrowserDialogEx_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                Rename();
+                e.Handled = true;
             }
         }
     }
