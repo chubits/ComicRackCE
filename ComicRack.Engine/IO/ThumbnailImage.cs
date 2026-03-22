@@ -151,7 +151,9 @@ namespace cYo.Projects.ComicRack.Engine.IO
 			ThumbnailImage thumbnailImage;
 			using (Image image2 = Scale(image, new Size(0, MaxHeight)))
 			{
-				thumbnailImage = ((!supportTransparent) ? new ThumbnailImage(image2.ImageToJpegBytes(ThumbnailQuality), image2.Size, originalSize) : new ThumbnailImage(image2.ImageToBytes(ImageFormat.Png), image2.Size, originalSize));
+                thumbnailImage = supportTransparent
+					? new ThumbnailImage(image2.ImageToBytes(ImageFormat.Png), image2.Size, originalSize)
+					: new ThumbnailImage(image2.ImageToJpegBytes(ThumbnailQuality), image2.Size, originalSize);
 			}
 			if (lastRequestHeight != 0)
 			{

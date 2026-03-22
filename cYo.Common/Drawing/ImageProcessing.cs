@@ -948,7 +948,11 @@ namespace cYo.Common.Drawing
                 byte* orgsrc = (byte*)srcData.Scan0.ToPointer();
 				byte* orgdst = (byte*)dstData.Scan0.ToPointer();
 
-                switch (method)
+				//Image has 4 bytesPerPixel (32 bit), so Add Alpha Channel
+				if (dstPixelSize == 4)
+					InitializeAlpha32(orgdst, newWidth, newHeight, dstStride);
+
+				switch (method)
 				{
 						case ResizeFastInterpolation.NearestNeighbor:
                         // for each line
@@ -973,10 +977,6 @@ namespace cYo.Common.Drawing
 						break;
 						case ResizeFastInterpolation.Bilinear:
                         {
-                            //Image has 4 bytesPerPixel (32 bit), so Add Alpha Channel
-                            if (dstPixelSize == 4)
-                                InitializeAlpha32(orgdst, newWidth, newHeight, dstStride);
-
                             // Ref: https://github.com/andrewkirillov/AForge.NET/blob/master/Sources/Imaging/Filters/Transform/ResizeBilinear.cs#L78
                             // width and height decreased by 1
                             int ymax = height - 1;
@@ -1027,14 +1027,9 @@ namespace cYo.Common.Drawing
                         }
 						case ResizeFastInterpolation.Bicubic:
                         {
-                            // Zero-initialize entire buffer for accumulation
-                            byte* initDst = orgdst;
-                            for (int i = 0; i < newHeight * dstStride; i++)
-                                *initDst++ = 0;
-
-                            // Ref: https://github.com/andrewkirillov/AForge.NET/blob/master/Sources/Imaging/Filters/Transform/ResizeBicubic.cs#L79
-                            // width and height decreased by 1
-                            int ymax = height - 1;
+							// Ref: https://github.com/andrewkirillov/AForge.NET/blob/master/Sources/Imaging/Filters/Transform/ResizeBicubic.cs#L79
+							// width and height decreased by 1
+							int ymax = height - 1;
                             int xmax = width - 1;
 
                             Parallel.For(0, newHeight, (int y) =>
